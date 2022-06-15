@@ -1,23 +1,20 @@
-import './employees-list.css'
-import EmployersListItem from '../employees-list-item/employees-list-item'
+import './employees-list.css';
+import EmployersListItem from '../employees-list-item/employees-list-item';
 
-const EmployersList = ({data, onDelete, onToggleProp}) => {
+const EmployersList = ({ data, onDelete, onToggleProp }) => {
   // onToggleIncrease, onToggleRise
-  const elements = data.map(item => {
-
-    const {id, ...itemProps} = item;
+  const elements = data.map((item) => {
+    const { id, ...itemProps } = item;
 
     return (
-      <EmployersListItem  
-        key={id} 
-        {...itemProps} /* name={item.name} salary={item.salary} */
+      <EmployersListItem
+        key={id}
+        {...itemProps}
         onDelete={() => onDelete(id)}
-        // onToggleIncrease={() => onToggleIncrease(id)}
-        // onToggleRise={() => onToggleRise(id)}
         onToggleProp={(e) => onToggleProp(id, e.currentTarget.getAttribute('data-toggle'))}
-        />  
-    )
-  })
+      />
+    );
+  });
 
   return (
     <ul className="app-list list-group">
@@ -26,9 +23,8 @@ const EmployersList = ({data, onDelete, onToggleProp}) => {
       <EmployersListItem name="Him" salary={30} /> */}
 
       {elements}
-
     </ul>
   );
-}
+};
 
 export default EmployersList;
